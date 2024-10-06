@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import IMG1 from "../assets/img1.jpg";
+import IMG1 from "../assets/Abu.jpg";
 import IMG2 from "../assets/img2.jpg";
 import IMG3 from "../assets/img3.jpg";
 import IMG4 from "../assets/img4.jpg";
@@ -10,13 +10,13 @@ import IMG8 from "../assets/img8.jpg";
 import IMG9 from "../assets/img9.jpg";
 import IMG10 from "../assets/img10.jpg";
 import IMG11 from "../assets/img11.jpg";
-import IMG12 from "../assets/Abu.jpg";
-import { useTheme } from "./ThemeContext"; // Import the useTheme hook
+import IMG12 from "../assets/img1.jpg";
+import { useTheme } from "./ThemeContext";
 
 const users = [
   {
     id: 1,
-    name: "Amin",
+    name: "Abuzar",
     message: "Hey there!",
     img: IMG1,
     timestamp: new Date(Date.now() - 1000 * 60 * 2),
@@ -109,12 +109,12 @@ const formatTimestamp = (timestamp) => {
     return `${Math.floor(diffInSeconds / 60)} minutes ago`;
   if (diffInSeconds < 86400)
     return `${Math.floor(diffInSeconds / 3600)} hours ago`;
-  return timestamp.toLocaleDateString(); // Format as MM/DD/YYYY
+  return timestamp.toLocaleDateString();
 };
 
-const MessageUserList = ({ onUserSelect }) => {
+const MessageUserList = ({ onUserSelect, currentUser }) => {
   const [searchTerm, setSearchTerm] = useState("");
-  const { isDarkMode } = useTheme(); // Use the theme context
+  const { isDarkMode } = useTheme();
 
   const filteredUsers = users.filter((user) =>
     user.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -122,10 +122,12 @@ const MessageUserList = ({ onUserSelect }) => {
 
   return (
     <div
-      className={`flex flex-col w-full max-w-xs sm:max-w-md lg:w-[360px] h-screen border ${
+      className={`flex flex-col h-screen border-r shadow-md ${
         isDarkMode
-          ? "border-gray-600 bg-gray-900 text-white"
-          : "border-gray-300 bg-white text-black"
+          ? "border-gray-700 bg-gray-900 text-white"
+          : "border-gray-200 bg-white text-black"
+      } transition-all duration-300 lg:w-[356px] ${
+        currentUser ? "hidden" : "block"
       }`}
     >
       <h2
@@ -163,7 +165,7 @@ const MessageUserList = ({ onUserSelect }) => {
               } transition-all w-full justify-between cursor-pointer active:${
                 isDarkMode ? "bg-gray-700" : "bg-gray-300"
               }`}
-              onClick={() => onUserSelect(user)} // Handle user click
+              onClick={() => onUserSelect(user)}
             >
               <div className="flex items-center">
                 <img
@@ -203,32 +205,32 @@ const MessageUserList = ({ onUserSelect }) => {
       </ul>
       <style jsx>{`
         ul {
-          scrollbar-width: thin; /* For Firefox */
-          scrollbar-color: #e5e7eb ${isDarkMode ? "#1f2937" : "#ffffff"}; /* Scrollbar color */
+          scrollbar-width: thin;
+          scrollbar-color: #e5e7eb ${isDarkMode ? "#1f2937" : "#ffffff"};
         }
         ul::-webkit-scrollbar {
-          width: 8px; /* Width of the scrollbar */
-          background: ${isDarkMode ? "#1f2937" : "#ffffff"}; /* Track color */
+          width: 8px;
+          background: ${isDarkMode ? "#1f2937" : "#ffffff"};
         }
         ul::-webkit-scrollbar-thumb {
-          background-color: #e5e7eb; /* Color of the scrollbar */
-          border-radius: 10px; /* Rounded corners */
-          transition: background-color 0.2s ease; /* Smooth transition */
+          background-color: #e5e7eb;
+          border-radius: 10px;
+          transition: background-color 0.2s ease;
         }
         ul::-webkit-scrollbar-thumb:hover {
-          background-color: #d1d5db; /* Darker on hover */
+          background-color: #d1d5db;
         }
         ul::-webkit-scrollbar-track {
-          background: ${isDarkMode ? "#1f2937" : "#ffffff"}; /* Track color */
+          background: ${isDarkMode ? "#1f2937" : "#ffffff"};
         }
         ul::-webkit-scrollbar-button {
-          display: none; /* Hides scrollbar buttons (arrows) */
+          display: none;
         }
         ul {
-          scrollbar-width: none; /* Hide scrollbar for Firefox */
+          scrollbar-width: none;
         }
         ul:hover {
-          scrollbar-width: thin; /* Show scrollbar on hover for Firefox */
+          scrollbar-width: thin;
         }
       `}</style>
     </div>

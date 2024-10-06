@@ -38,15 +38,13 @@ const Sidebar02 = () => {
         isDarkMode ? "bg-gray-800 text-white" : "bg-gray-100 text-black"
       }`}
     >
-      {/* Sidebar with user list (visible on small screens) */}
+      {/* Sidebar with user list */}
       <div
-        className={`flex flex-col w-[360px] relative h-full border ${
-          isDarkMode
-            ? "border-gray-600 bg-gray-900"
-            : "border-gray-300 bg-white"
-        } transition-all duration-300 ${
-          currentUser ? "hidden lg:block" : "block"
-        }`}
+        className={`flex flex-col h-full ${
+          isDarkMode ? "bg-gray-900" : "bg-white"
+        } transition-all duration-300 
+        ${currentUser ? "hidden lg:w-[356px] lg:block" : "w-full"}
+        ${currentUser ? "w-full" : "w-[360px] lg:block"}`}
       >
         <Routes>
           <Route

@@ -57,8 +57,10 @@ const Sidebar = () => {
     <div>
       {/* Sidebar on Large Screens */}
       <div
-        className={`hidden md:flex flex-col h-screen w-16 py-4 shadow-md transition-colors duration-200 ${
-          isDarkMode ? "bg-gray-900" : "bg-gray-50"
+        className={`hidden md:flex flex-col h-screen w-16 py-4 shadow-md transition-colors duration-200 border-r ${
+          isDarkMode
+            ? "bg-gray-900 border-gray-600"
+            : "bg-gray-50 border-gray-200"
         }`}
       >
         <div className="mb-6 flex items-center justify-center">

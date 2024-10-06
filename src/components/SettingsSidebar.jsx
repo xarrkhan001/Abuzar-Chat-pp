@@ -7,8 +7,8 @@ import {
   FaBell,
   FaHdd,
   FaQuestionCircle,
-} from "react-icons/fa"; // Importing icons
-import { useTheme } from "./ThemeContext"; // Importing theme context
+} from "react-icons/fa";
+import { useTheme } from "./ThemeContext";
 
 const settingsOptions = [
   {
@@ -56,7 +56,7 @@ const settingsOptions = [
 ];
 
 const SettingsSidebar = () => {
-  const { isDarkMode } = useTheme(); // Use theme context for dark mode
+  const { isDarkMode } = useTheme();
 
   const handleClick = (alertMessage) => {
     alert(alertMessage);
@@ -64,7 +64,7 @@ const SettingsSidebar = () => {
 
   return (
     <div
-      className={`flex flex-col w-full max-w-xs sm:max-w-md lg:w-[360px] h-screen border ${
+      className={`flex flex-col w-full sm:w-[356px] h-screen border ${
         isDarkMode ? "border-gray-600" : "border-gray-200"
       } ${isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"}`}
     >
@@ -86,7 +86,7 @@ const SettingsSidebar = () => {
             className={`flex items-center mb-2 py-3 px-4 hover:${
               isDarkMode ? "bg-gray-700" : "bg-gray-100"
             } transition-colors duration-200 rounded-lg cursor-pointer`}
-            onClick={() => handleClick(option.alertMessage)} // Trigger alert on click
+            onClick={() => handleClick(option.alertMessage)}
           >
             <span
               className={`mr-3 text-lg transition-colors duration-200 ${
@@ -105,24 +105,6 @@ const SettingsSidebar = () => {
           </li>
         ))}
       </ul>
-      <style jsx>{`
-        ul {
-          scrollbar-width: thin; /* For Firefox */
-          scrollbar-color: #e5e7eb #ffffff; /* Scrollbar color */
-        }
-        ul::-webkit-scrollbar {
-          width: 8px; /* Width of the scrollbar */
-          background: ${isDarkMode ? "#1f2937" : "#ffffff"}; /* Track color */
-        }
-        ul::-webkit-scrollbar-thumb {
-          background-color: #e5e7eb; /* Color of the scrollbar */
-          border-radius: 10px; /* Rounded corners */
-          transition: background-color 0.2s ease; /* Smooth transition */
-        }
-        ul::-webkit-scrollbar-thumb:hover {
-          background-color: #d1d5db; /* Darker on hover */
-        }
-      `}</style>
     </div>
   );
 };

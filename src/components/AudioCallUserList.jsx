@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MdCall } from "react-icons/md"; // Importing icons
-import IMG1 from "../assets/img1.jpg";
+import IMG1 from "../assets/Abu.jpg";
 import IMG2 from "../assets/img2.jpg";
 import IMG3 from "../assets/img3.jpg";
 import IMG4 from "../assets/img4.jpg";
@@ -11,27 +11,26 @@ import IMG8 from "../assets/img8.jpg";
 import IMG9 from "../assets/img9.jpg";
 import IMG10 from "../assets/img10.jpg";
 import IMG11 from "../assets/img11.jpg";
-import IMG12 from "../assets/Abu.jpg";
+import IMG12 from "../assets/img1.jpg";
 import AudioCallPopup from "./AudioCallPopup"; // Import the popup component
 import { useTheme } from "./ThemeContext"; // Importing theme context
 
-// Helper function to format call information
 const formatCallInfo = (dateString, isRecent) => {
   const date = new Date(dateString);
   const now = new Date();
-  const minutesDiff = Math.floor((now - date) / 60000); // difference in minutes
+  const minutesDiff = Math.floor((now - date) / 60000);
 
   if (isRecent && minutesDiff < 5) {
     return date.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
   } else {
-    return date.toLocaleDateString(); // Use for outgoing and older calls
+    return date.toLocaleDateString();
   }
 };
 
 const users = [
   {
     id: 1,
-    name: "Amin",
+    name: "Abuzar",
     callType: "Incoming",
     img: IMG1,
     callDate: "2024-09-28T12:30:00",
@@ -146,11 +145,11 @@ const AudioCallUserList = () => {
 
   return (
     <div
-      className={`flex flex-col w-full max-w-xs sm:max-w-md lg:w-[360px] h-screen border ${
+      className={`flex flex-col h-screen border-r shadow-md ${
         isDarkMode
-          ? "border-gray-600 bg-gray-900 text-white"
-          : "border-gray-300 bg-white text-black"
-      }`}
+          ? "border-gray-700 bg-gray-900 text-white"
+          : "border-gray-200 bg-white text-black"
+      } transition-all duration-300 lg:w-[356px]`}
     >
       <h2
         className={`text-xl font-bold p-4 border-b ${

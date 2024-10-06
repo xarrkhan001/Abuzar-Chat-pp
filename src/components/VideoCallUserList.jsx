@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MdVideocam } from "react-icons/md";
-import IMG1 from "../assets/img1.jpg";
+import IMG1 from "../assets/Abu.jpg";
 import IMG2 from "../assets/img2.jpg";
 import IMG3 from "../assets/img3.jpg";
 import IMG4 from "../assets/img4.jpg";
@@ -11,7 +11,7 @@ import IMG8 from "../assets/img8.jpg";
 import IMG9 from "../assets/img9.jpg";
 import IMG10 from "../assets/img10.jpg";
 import IMG11 from "../assets/img11.jpg";
-import IMG12 from "../assets/Abu.jpg";
+import IMG12 from "../assets/img1.jpg";
 import VideoCallPopup from "./VideoCallPopup";
 import { useTheme } from "./ThemeContext";
 
@@ -30,7 +30,7 @@ const formatCallInfo = (dateString, isRecent) => {
 const users = [
   {
     id: 1,
-    name: "Amin",
+    name: "Abuzar",
     callType: "Incoming",
     img: IMG1,
     callDate: "2024-09-28T12:30:00",
@@ -145,18 +145,18 @@ const VideoCallUserList = () => {
 
   return (
     <div
-      className={`flex flex-col w-full max-w-xs sm:max-w-md lg:w-[360px] h-screen border ${
-        isDarkMode ? "border-gray-600" : "border-gray-300"
-      } border-l-0 ${
+      className={`flex flex-col h-screen ${
+        isDarkMode ? "border-r border-gray-700" : "border-r border-gray-200"
+      } shadow-md ${
         isDarkMode ? "bg-gray-900 text-white" : "bg-white text-black"
-      }`}
+      } transition-all duration-300 lg:w-[356px]`}
     >
       <h2
         className={`text-xl font-bold p-4 border-b ${
           isDarkMode ? "border-gray-700" : "border-gray-200"
         } text-center sm:text-left`}
       >
-        Video Calls
+        Audio Calls
       </h2>
       <div className="flex justify-center mb-4 mt-4">
         <input

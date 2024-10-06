@@ -45,11 +45,11 @@ const ChatArea = ({ user, onSendMessage, currentUserId, messages, onBack }) => {
 
   return (
     <div
-      className={`flex flex-col h-screen w-full lg:w-[1159px] ${
+      className={`flex flex-col h-screen w-full lg:w-[1180px] ${
         isDarkMode
           ? "bg-gray-900 text-white border border-gray-600"
           : "bg-white border border-gray-300"
-      } shadow-md relative`}
+      }  relative`}
     >
       <div
         className={`flex items-center p-4 border-b ${
